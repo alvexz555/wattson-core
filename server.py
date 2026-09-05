@@ -3,6 +3,9 @@ from openai import OpenAI
 
 from main import WattsonCore
 
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = Flask(__name__, static_folder="interface")
 
