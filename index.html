@@ -545,67 +545,6 @@
 
     }
 
-
-    function generateResponse(text) {
-
-        const message = text
-            .toLowerCase()
-            .trim();
-
-
-        if (
-            message.includes("olá") ||
-            message.includes("oi")
-        ) {
-
-            return "Olá. Eu sou o Wattson Core.";
-
-        }
-
-
-        if (
-            message.includes("quem é você") ||
-            message.includes("quem você é")
-        ) {
-
-            return "Sou o Wattson Core, uma inteligência artificial experimental.";
-
-        }
-
-
-        if (
-            message.includes("como você está")
-        ) {
-
-            return "Todos os meus sistemas estão funcionando.";
-
-        }
-
-
-        if (
-            message.includes("teste")
-        ) {
-
-            return "Teste recebido. Meu sistema de decisão está funcionando.";
-
-        }
-
-
-        if (
-            message.includes("tchau") ||
-            message.includes("adeus")
-        ) {
-
-            return "Até a próxima.";
-
-        }
-
-
-        return "Ainda não sei como responder a isso.";
-
-    }
-
-
     function sendMessage() {
 
         const text = input.value.trim();
