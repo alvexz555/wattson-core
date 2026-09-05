@@ -12,6 +12,7 @@
     <title>Wattson Core</title>
 
     <style>
+
         * {
             box-sizing: border-box;
             margin: 0;
@@ -256,6 +257,11 @@
             opacity: 0.85;
         }
 
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
         /* ACTIVITY */
 
         .activity {
@@ -298,9 +304,18 @@
                 max-width: 90%;
             }
 
+            .input-area {
+                flex-direction: column;
+            }
+
+            button {
+                height: 44px;
+            }
+
         }
 
     </style>
+
 </head>
 
 
@@ -319,14 +334,17 @@
             </div>
 
             <div>
+
                 <h1>Wattson Core</h1>
 
                 <div class="version">
                     Experimental Intelligence System v0.1.0
                 </div>
+
             </div>
 
         </div>
+
 
         <div class="status">
 
@@ -342,7 +360,6 @@
     <!-- DASHBOARD -->
 
     <div class="dashboard">
-
 
         <!-- CORE STATUS -->
 
@@ -421,7 +438,11 @@
             Comunicação
         </div>
 
-        <div class="chat" id="chat">
+
+        <div
+            class="chat"
+            id="chat"
+        >
 
             <div class="message wattson">
 
@@ -436,7 +457,10 @@
         </div>
 
 
-        <div class="input-area">
+        <form
+            class="input-area"
+            id="messageForm"
+        >
 
             <input
                 type="text"
@@ -445,11 +469,14 @@
                 autocomplete="off"
             >
 
-            <button onclick="sendMessage()">
+            <button
+                type="submit"
+                id="sendButton"
+            >
                 Enviar
             </button>
 
-        </div>
+        </form>
 
     </section>
 
@@ -462,7 +489,11 @@
             Atividade do Core
         </div>
 
-        <div class="activity" id="activity">
+
+        <div
+            class="activity"
+            id="activity"
+        >
 
             <div class="activity-item">
                 <strong>[SYSTEM]</strong>
@@ -483,16 +514,26 @@
 
 <script>
 
-    const input = document.getElementById("messageInput");
+    const input =
+        document.getElementById("messageInput");
 
-    const chat = document.getElementById("chat");
+    const chat =
+        document.getElementById("chat");
 
-    const activity = document.getElementById("activity");
+    const activity =
+        document.getElementById("activity");
+
+    const form =
+        document.getElementById("messageForm");
+
+    const sendButton =
+        document.getElementById("sendButton");
 
 
     function addMessage(sender, text) {
 
-        const message = document.createElement("div");
+        const message =
+            document.createElement("div");
 
         message.classList.add(
             "message",
@@ -502,14 +543,18 @@
         );
 
 
-        const label = document.createElement("div");
+        const label =
+            document.createElement("div");
 
-        label.classList.add("message-label");
+        label.classList.add(
+            "message-label"
+        );
 
         label.textContent = sender;
 
 
-        const content = document.createElement("div");
+        const content =
+            document.createElement("div");
 
         content.textContent = text;
 
@@ -518,91 +563,170 @@
 
         message.appendChild(content);
 
-
         chat.appendChild(message);
 
-
-        chat.scrollTop = chat.scrollHeight;
+        chat.scrollTop =
+            chat.scrollHeight;
 
     }
 
 
     function addActivity(text) {
 
-        const item = document.createElement("div");
+        const item =
+            document.createElement("div");
 
-        item.classList.add("activity-item");
+        item.classList.add(
+            "activity-item"
+        );
 
-        item.innerHTML =
-            "<strong>[CORE]</strong> " + text;
+
+        const strong =
+            document.createElement("strong");
+
+        strong.textContent = "[CORE] ";
+
+        item.appendChild(strong);
+
+        item.appendChild(
+            document.createTextNode(text)
+        );
 
 
         activity.appendChild(item);
 
-
-        activity.scrollTop =
-            activity.scrollHeight;
-
-    }
-    
-async function sendMessage() {
-    const text = input.value.trim();
-
-    if (!text) {
-        return;
     }
 
-    addMessage("VOCÊ", text);
-    addActivity("Entrada recebida.");
 
-    input.value = "";
+    async function sendMessage() {
 
-    addActivity("Processando entrada...");
+        const text =
+            input.value.trim();
 
-    try {
-        const response = await fetch("/api/think", {
-            method: "POST",
 
-            headers: {
-                "Content-Type": "application/json"
-            },
-
-            body: JSON.stringify({
-                message: text
-            })
-        });
-
-        const data = await response.json();
-
-        if (!response.ok) {
-            throw new Error(
-                data.error || "Erro no servidor."
-            );
+        if (!text) {
+            return;
         }
 
-        addMessage("WATTSON", data.response);
-
-        addActivity(
-            "Resposta gerada pela inteligência artificial."
-        );
-
-    } catch (error) {
 
         addMessage(
-            "WATTSON",
-            "Não consegui acessar meu núcleo de IA."
+            "VOCÊ",
+            text
         );
 
         addActivity(
-            "Erro: " + error.message
+            "Entrada recebida."
         );
-    }
-}
-    
-        input.addEventListener("keydown", function(event) {
 
-    if (event.key === "Enter") {
-        sendMessage();
+
+        input.value = "";
+
+        sendButton.disabled = true;
+
+        sendButton.textContent =
+            "Pensando...";
+
+
+        addActivity(
+            "Processando entrada..."
+        );
+
+
+        try {
+
+            const response =
+                await fetch(
+                    "/api/think",
+                    {
+                        method: "POST",
+
+                        headers: {
+                            "Content-Type":
+                                "application/json"
+                        },
+
+                        body:
+                            JSON.stringify({
+                                message: text
+                            })
+                    }
+                );
+
+
+            const data =
+                await response.json();
+
+
+            if (!response.ok) {
+
+                throw new Error(
+                    data.error ||
+                    "Erro no servidor."
+                );
+
+            }
+
+
+            addMessage(
+                "WATTSON",
+                data.response
+            );
+
+
+            addActivity(
+                "Resposta gerada pela inteligência artificial."
+            );
+
+
+        } catch (error) {
+
+            console.error(
+                "Erro ao comunicar com o Core:",
+                error
+            );
+
+
+            addMessage(
+                "WATTSON",
+                "Não consegui acessar meu núcleo de IA."
+            );
+
+
+            addActivity(
+                "Erro: " + error.message
+            );
+
+        } finally {
+
+            sendButton.disabled = false;
+
+            sendButton.textContent =
+                "Enviar";
+
+            input.focus();
+
+        }
+
     }
 
-});
+
+    form.addEventListener(
+        "submit",
+        function(event) {
+
+            event.preventDefault();
+
+            sendMessage();
+
+        }
+    );
+
+
+    input.focus();
+
+</script>
+
+
+</body>
+
+</html>
