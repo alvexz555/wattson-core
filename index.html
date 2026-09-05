@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Wattson Core</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #0b0f14;
+            color: #e6edf3;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        /* HEADER */
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 18px 20px;
+            background: #111821;
+            border: 1px solid #202b36;
+            border-radius: 12px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brain {
+            font-size: 32px;
+        }
+
+        .logo h1 {
+            font-size: 22px;
+        }
+
+        .version {
+            color: #7f8c99;
+            font-size: 13px;
+            margin-top: 3px;
+        }
+
+        .status {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #7ee787;
+            font-size: 14px;
+        }
+
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #7ee787;
+        }
+
+        /* GRID */
+
+        .dashboard {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+        }
+
+        .panel {
+            background: #111821;
+            border: 1px solid #202b36;
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        .panel-title {
+            font-size: 15px;
+            color: #9da9b5;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* CORE */
+
+        .core-status {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 180px;
+        }
+
+        .core-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 2px solid #7ee787;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 42px;
+
+            margin-bottom: 15px;
+        }
+
+        .core-state {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .core-description {
+            margin-top: 6px;
+            color: #7f8c99;
+            font-size: 13px;
+        }
+
+        /* INFO */
+
+        .info-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .info {
+            display: flex;
+            justify-content: space-between;
+
+            padding: 12px;
+
+            background: #0d131a;
+            border-radius: 8px;
+        }
+
+        .info span:first-child {
+            color: #7f8c99;
+        }
+
+        .info span:last-child {
+            color: #e6edf3;
+            font-weight: bold;
+        }
+
+        /* CHAT */
+
+        .chat-panel {
+            margin-top: 20px;
+        }
+
+        .chat {
+            height: 320px;
+            overflow-y: auto;
+
+            background: #0d131a;
+
+            border-radius: 8px;
+            padding: 15px;
+
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .message {
+            max-width: 80%;
+            padding: 10px 13px;
+            border-radius: 8px;
+            line-height: 1.4;
+            font-size: 14px;
+        }
+
+        .wattson {
+            background: #18222d;
+            align-self: flex-start;
+        }
+
+        .user {
+            background: #263342;
+            align-self: flex-end;
+        }
+
+        .message-label {
+            font-size: 11px;
+            color: #7f8c99;
+            margin-bottom: 4px;
+        }
+
+        /* INPUT */
+
+        .input-area {
+            display: flex;
+            gap: 10px;
+            margin-top: 12px;
+        }
+
+        input {
+            flex: 1;
+
+            background: #0d131a;
+            border: 1px solid #283542;
+
+            color: white;
+
+            padding: 12px;
+
+            border-radius: 8px;
+
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #7ee787;
+        }
+
+        button {
+            border: none;
+
+            background: #7ee787;
+            color: #08100a;
+
+            padding: 0 20px;
+
+            border-radius: 8px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        button:hover {
+            opacity: 0.85;
+        }
+
+        /* ACTIVITY */
+
+        .activity {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .activity-item {
+            padding: 10px;
+
+            background: #0d131a;
+
+            border-radius: 7px;
+
+            font-size: 13px;
+
+            color: #9da9b5;
+        }
+
+        .activity-item strong {
+            color: #e6edf3;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 800px) {
+
+            .dashboard {
+                grid-template-columns: 1fr;
+            }
+
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+
+            .message {
+                max-width: 90%;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+<div class="container">
+
+    <!-- HEADER -->
+
+    <header>
+
+        <div class="logo">
+
+            <div class="brain">
+                🧠
+            </div>
+
+            <div>
+                <h1>Wattson Core</h1>
+
+                <div class="version">
+                    Experimental Intelligence System v0.1.0
+                </div>
+            </div>
+
+        </div>
+
+        <div class="status">
+
+            <div class="status-dot"></div>
+
+            ONLINE
+
+        </div>
+
+    </header>
+
+
+    <!-- DASHBOARD -->
+
+    <div class="dashboard">
+
+
+        <!-- CORE STATUS -->
+
+        <section class="panel">
+
+            <div class="panel-title">
+                Core Status
+            </div>
+
+            <div class="core-status">
+
+                <div class="core-circle">
+                    🧠
+                </div>
+
+                <div class="core-state">
+                    Sistema operacional
+                </div>
+
+                <div class="core-description">
+                    Wattson Core está aguardando entrada.
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- SYSTEM INFO -->
+
+        <section class="panel">
+
+            <div class="panel-title">
+                Sistema
+            </div>
+
+            <div class="info-list">
+
+                <div class="info">
+                    <span>Nome</span>
+                    <span>Wattson</span>
+                </div>
+
+                <div class="info">
+                    <span>Versão</span>
+                    <span>0.1.0</span>
+                </div>
+
+                <div class="info">
+                    <span>Estado</span>
+                    <span>Idle</span>
+                </div>
+
+                <div class="info">
+                    <span>Memória</span>
+                    <span>Offline</span>
+                </div>
+
+                <div class="info">
+                    <span>Robô</span>
+                    <span>Desconectado</span>
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+    <!-- CHAT -->
+
+    <section class="panel chat-panel">
+
+        <div class="panel-title">
+            Comunicação
+        </div>
+
+        <div class="chat" id="chat">
+
+            <div class="message wattson">
+
+                <div class="message-label">
+                    WATTSON
+                </div>
+
+                Olá. Eu sou o Wattson Core.
+
+            </div>
+
+        </div>
+
+
+        <div class="input-area">
+
+            <input
+                type="text"
+                id="messageInput"
+                placeholder="Digite uma mensagem..."
+                autocomplete="off"
+            >
+
+            <button onclick="sendMessage()">
+                Enviar
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ACTIVITY -->
+
+    <section class="panel chat-panel">
+
+        <div class="panel-title">
+            Atividade do Core
+        </div>
+
+        <div class="activity" id="activity">
+
+            <div class="activity-item">
+                <strong>[SYSTEM]</strong>
+                Sistema iniciado.
+            </div>
+
+            <div class="activity-item">
+                <strong>[CORE]</strong>
+                Aguardando entrada do usuário.
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<script>
+
+    const input = document.getElementById("messageInput");
+
+    const chat = document.getElementById("chat");
+
+    const activity = document.getElementById("activity");
+
+
+    function addMessage(sender, text) {
+
+        const message = document.createElement("div");
+
+        message.classList.add(
+            "message",
+            sender === "WATTSON"
+                ? "wattson"
+                : "user"
+        );
+
+
+        const label = document.createElement("div");
+
+        label.classList.add("message-label");
+
+        label.textContent = sender;
+
+
+        const content = document.createElement("div");
+
+        content.textContent = text;
+
+
+        message.appendChild(label);
+
+        message.appendChild(content);
+
+
+        chat.appendChild(message);
+
+
+        chat.scrollTop = chat.scrollHeight;
+
+    }
+
+
+    function addActivity(text) {
+
+        const item = document.createElement("div");
+
+        item.classList.add("activity-item");
+
+        item.innerHTML =
+            "<strong>[CORE]</strong> " + text;
+
+
+        activity.appendChild(item);
+
+
+        activity.scrollTop =
+            activity.scrollHeight;
+
+    }
+
+
+    function generateResponse(text) {
+
+        const message = text
+            .toLowerCase()
+            .trim();
+
+
+        if (
+            message.includes("olá") ||
+            message.includes("oi")
+        ) {
+
+            return "Olá. Eu sou o Wattson Core.";
+
+        }
+
+
+        if (
+            message.includes("quem é você") ||
+            message.includes("quem você é")
+        ) {
+
+            return "Sou o Wattson Core, uma inteligência artificial experimental.";
+
+        }
+
+
+        if (
+            message.includes("como você está")
+        ) {
+
+            return "Todos os meus sistemas estão funcionando.";
+
+        }
+
+
+        if (
+            message.includes("teste")
+        ) {
+
+            return "Teste recebido. Meu sistema de decisão está funcionando.";
+
+        }
+
+
+        if (
+            message.includes("tchau") ||
+            message.includes("adeus")
+        ) {
+
+            return "Até a próxima.";
+
+        }
+
+
+        return "Ainda não sei como responder a isso.";
+
+    }
+
+
+    function sendMessage() {
+
+        const text = input.value.trim();
+
+
+        if (!text) {
+            return;
+        }
+
+
+        addMessage(
+            "VOCÊ",
+            text
+        );
+
+
+        addActivity(
+            "Entrada recebida."
+        );
+
+
+        input.value = "";
+
+
+        setTimeout(() => {
+
+            addActivity(
+                "Processando entrada..."
+            );
+
+
+            const response =
+                generateResponse(text);
+
+
+            setTimeout(() => {
+
+                addMessage(
+                    "WATTSON",
+                    response
+                );
+
+
+                addActivity(
+                    "Resposta gerada."
+                );
+
+            }, 300);
+
+
+        }, 300);
+
+    }
+
+
+    input.addEventListener(
+        "keydown",
+        function(event) {
+
+            if (event.key === "Enter") {
+
+                sendMessage();
+
+            }
+
+        }
+    );
+
+</script>
+
+
+</body>
+
+</html>
