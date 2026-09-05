@@ -544,64 +544,61 @@
             activity.scrollHeight;
 
     }
+    
+async function sendMessage() {
+    const text = input.value.trim();
 
-    function sendMessage() {
-
-        const text = input.value.trim();
-
-
-        if (!text) {
-            return;
-        }
-
-
-        addMessage(
-            "VOCÊ",
-            text
-        );
-
-
-        addActivity(
-            "Entrada recebida."
-        );
-
-
-        input.value = "";
-
-
-        setTimeout(() => {
-
-            addActivity(
-                "Processando entrada..."
-            );
-
-
-            const response =
-                generateResponse(text);
-
-
-            setTimeout(() => {
-
-                addMessage(
-                    "WATTSON",
-                    response
-                );
-
-
-                addActivity(
-                    "Resposta gerada."
-                );
-
-            }, 300);
-
-
-        }, 300);
-
+    if (!text) {
+        return;
     }
 
+    addMessage("VOCÊ", text);
+    addActivity("Entrada recebida.");
 
-    input.addEventListener(
-        "keydown",
+    input.value = "";
+
+    addActivity("Processando entrada...");
+
+    try {
+        const response = await fetch("/api/think", {
+            method: "POST",
+
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify({
+                message: text
+            })
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            throw new Error(
+                data.error || "Erro no servidor."
+            );
+        }
+
+        addMessage("WATTSON", data.response);
+
+        addActivity(
+            "Resposta gerada pela inteligência artificial."
+        );
+
+    } catch (error) {
+
+        addMessage(
+            "WATTSON",
+            "Não consegui acessar meu núcleo de IA."
+        );
+
+        addActivity(
+            "Erro: " + error.message
+        );
+    }
+}
+    
         function(event) {
 
             if (event.key === "Enter") {
