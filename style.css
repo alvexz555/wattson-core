@@ -855,7 +855,6 @@ button {
 /* =========================================================
    CELULAR
    ========================================================= */
-
 @media (max-width: 480px) {
     .app {
         padding: 12px 10px 24px;
@@ -1003,28 +1002,63 @@ button {
 
     .input-wrapper {
         min-height: 50px;
+        height: 50px;
         border-radius: 8px;
+
+        display: flex;
+        align-items: center;
+
+        overflow: hidden;
     }
 
     .input-icon {
         margin-left: 12px;
         font-size: 14px;
+
+        flex: 0 0 auto;
     }
 
     #messageInput {
+        min-width: 0;
+        flex: 1;
+
         padding: 0 9px;
         font-size: 12px;
     }
 
     .send-button {
         width: 70px;
+        min-width: 70px;
         height: 34px;
 
-        flex-basis: 70px;
+        flex: 0 0 70px;
 
+        margin-left: 0;
         margin-right: 5px;
 
+        padding: 0 10px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border-radius: 7px;
+
         font-size: 13px;
+        font-weight: 700;
+
+        white-space: nowrap;
+        overflow: hidden;
+    }
+
+    .send-icon {
+        flex: 0 0 auto;
+        line-height: 1;
+    }
+
+    #sendButtonText {
+        display: inline;
+        white-space: nowrap;
     }
 
     .activity-panel {
@@ -1036,7 +1070,6 @@ button {
         font-size: 8px;
     }
 }
-
 /* =========================================================
    CELULARES MUITO PEQUENOS
    ========================================================= */
