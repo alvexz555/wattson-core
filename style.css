@@ -857,181 +857,97 @@ button {
    ========================================================= */
 
 @media (max-width: 480px) {
-
     .app {
-        padding: 10px 8px 24px;
+        padding: 12px 10px 24px;
     }
-
-    /* HEADER */
 
     .header {
-        align-items: center;
-
-        gap: 10px;
-
-        padding: 15px 14px;
-
-        border-radius: 10px;
-    }
-
-    .header-identity {
-        gap: 10px;
+        padding: 16px;
     }
 
     .header-icon {
         width: 36px;
         height: 36px;
-
-        flex-basis: 36px;
-
-        border-radius: 8px;
-
-        font-size: 20px;
+        font-size: 16px;
     }
 
     .header-info h1 {
-        font-size: 17px;
+        font-size: 16px;
     }
 
     .version {
-        margin-top: 3px;
-
-        font-size: 10px;
+        font-size: 9px;
     }
 
     .system-status {
-        gap: 5px;
-
         font-size: 9px;
-        letter-spacing: 0.3px;
     }
-
-    .status-indicator {
-        width: 7px;
-        height: 7px;
-
-        flex-basis: 7px;
-    }
-
-    /* MAIN */
 
     .main-content {
-        margin-top: 14px;
+        gap: 10px;
     }
 
-    /* PANELS */
+    .dashboard {
+        gap: 10px;
+    }
 
     .panel {
-        border-radius: 10px;
+        border-radius: 8px;
     }
 
     .panel-header {
-        gap: 10px;
-
-        padding: 15px 14px;
-    }
-
-    .panel-label {
-        margin-bottom: 4px;
-
-        font-size: 9px;
-        letter-spacing: 1.2px;
+        padding: 12px 14px;
     }
 
     .panel-header h2 {
-        font-size: 13px;
+        font-size: 11px;
     }
 
-    .panel-status {
+    .panel-label {
         font-size: 9px;
     }
 
-    /* CORE */
-
     .core-content {
-        min-height: 220px;
-
-        padding: 30px 16px;
+        padding: 24px 16px;
+        min-height: 180px;
     }
 
     .core-orb {
-        width: 76px;
-        height: 76px;
-
-        flex-basis: 76px;
-
-        margin-bottom: 20px;
+        width: 70px;
+        height: 70px;
     }
 
     .core-icon {
-        font-size: 34px;
-    }
-
-    .core-pulse {
-        right: 4px;
-        bottom: 9px;
-
-        width: 7px;
-        height: 7px;
+        font-size: 24px;
     }
 
     .core-state {
-        font-size: 15px;
+        font-size: 11px;
     }
 
     .core-activity {
-        max-width: 240px;
-
-        margin-top: 8px;
-
-        font-size: 11px;
-        line-height: 1.5;
+        font-size: 9px;
     }
 
-    /* SISTEMA */
-
     .system-info {
-        padding: 10px 14px;
+        padding: 14px;
+        gap: 12px;
     }
 
     .system-item {
-        grid-template-columns: 25px minmax(0, 1fr);
-
-        column-gap: 8px;
-
-        padding: 13px 0;
-    }
-
-    .system-item:first-child {
-        padding-top: 4px;
-    }
-
-    .system-item:last-child {
-        padding-bottom: 4px;
-    }
-
-    .item-icon {
-        font-size: 14px;
+        padding: 10px;
     }
 
     .system-item-label {
-        font-size: 10px;
+        font-size: 9px;
     }
 
-    .system-item strong {
-        margin-top: 3px;
-
-        font-size: 12px;
+    .system-item-value {
+        font-size: 11px;
     }
-
-    /* COMUNICAÇÃO */
 
     .communication-panel {
-        margin-top: 14px;
-    }
-
-    .communication-panel > .panel-header {
-        padding-right: 12px;
+        min-height: 450px;
     }
 
     .language-selector {
@@ -1039,74 +955,47 @@ button {
     }
 
     .language-button {
-        width: 31px;
-        height: 28px;
-
-        font-size: 14px;
-    }
-
-    /* CHAT */
-
-    .chat {
-        min-height: 300px;
-        max-height: 52vh;
-
-        padding: 20px 13px;
-    }
-
-    .message {
-        gap: 9px;
-
-        max-width: 94%;
-
-        margin-bottom: 22px;
-    }
-
-    .message-avatar {
-        width: 29px;
-        height: 29px;
-
-        flex-basis: 29px;
-
-        border-radius: 7px;
-
-        font-size: 14px;
-    }
-
-    .message-header {
-        gap: 7px;
-
-        margin-bottom: 5px;
-    }
-
-    .message-label {
+        padding: 5px 7px;
         font-size: 9px;
     }
 
-    .message-time {
+    .chat {
+        padding: 14px;
+        gap: 14px;
+    }
+
+    .message {
+        gap: 8px;
+    }
+
+    .message-avatar {
+        width: 26px;
+        height: 26px;
+        font-size: 11px;
+    }
+
+    .message-content {
+        max-width: 85%;
+    }
+
+    .message-header {
         font-size: 9px;
     }
 
     .message-text {
-        font-size: 12px;
-        line-height: 1.65;
+        font-size: 11px;
+        line-height: 1.5;
     }
 
-    /* QUICK ACTIONS */
-
     .quick-actions {
+        padding: 0 14px 10px;
         gap: 6px;
-
-        padding: 0 13px 13px;
     }
 
     .quick-action {
-        padding: 7px 10px;
-
+        padding: 7px 9px;
         font-size: 9px;
     }
-
-    /* INPUT */
 
     .input-area {
         padding: 0 13px 15px;
@@ -1114,59 +1003,37 @@ button {
 
     .input-wrapper {
         min-height: 50px;
-
         border-radius: 8px;
     }
 
     .input-icon {
         margin-left: 12px;
-
         font-size: 14px;
     }
 
     #messageInput {
         padding: 0 9px;
-
         font-size: 12px;
     }
 
     .send-button {
-        width: 34px;
+        width: 70px;
         height: 34px;
 
-        flex-basis: 34px;
+        flex-basis: 70px;
 
         margin-right: 5px;
 
         font-size: 13px;
     }
 
-    /* ATIVIDADE */
-
     .activity-panel {
-        margin-top: 14px;
+        display: none;
     }
-
-    .activity-list {
-        padding: 12px 14px;
-    }
-
-    .activity-item {
-        grid-template-columns: 52px 55px minmax(0, 1fr);
-
-        gap: 6px;
-
-        padding: 9px 0;
-
-        font-size: 9px;
-    }
-
-    /* FOOTER */
 
     .footer {
-        padding-top: 20px;
-
-        font-size: 9px;
+        padding-top: 14px;
+        font-size: 8px;
     }
 }
 
