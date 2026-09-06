@@ -1,13 +1,10 @@
-# wattson-core
-Modular AI core designed for future integration with a physical robot.
-                         WATTSON CORE
-                         ```mermaid
 flowchart TD
 
-    UI["Interface"] TD
-    SERVER["Servidor"]
-    CORE["Wattson Core"]
+    UI["Interface<br>index.html"]
+    SERVER["Servidor<br>server.py"]
+    CORE["Wattson Core<br>main.py"]
+    OPENAI["OpenAI API"]
 
     UI --> SERVER
     SERVER --> CORE
-```
+    CORE --> OPENAI
