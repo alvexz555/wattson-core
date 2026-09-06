@@ -665,6 +665,7 @@ button {
     flex: 0 0 70px;
 
     margin-right: 0px;
+    margin-left: 20px;
 
     display: flex;
     align-items: center;
