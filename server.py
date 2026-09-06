@@ -1,54 +1,39 @@
 from flask import Flask, jsonify, request, send_from_directory
-from openai import OpenAI
 
 from main import WattsonCore
-
-from dotenv import load_dotenv
-
-load_dotenv()
-
-app = Flask(__name__, static_folder="interface")
-
-client = OpenAI()
-
-wattson = WattsonCore(client)
+from providers.local_provider import LocalAIProvider
 
 
-@app.get("/")
+app = Flask(__name__)
+
+ai_provider = LocalAIProvider()
+wattson = WattsonCore(ai_provider)
+
+
+@app.route("/", methods=["GET"])
 def index():
-    return send_from_directory(
-        "interface",
-        "index.html"
-    )
+    return send_from_directory(".", "index.html")
 
 
-@app.post("/api/think")
+@app.route("/api/think", methods=["POST"])
 def think():
     data = request.get_json(silent=True) or {}
+    message = data.get("message", "")
 
-    message = data.get("message", "").strip()
+    if not isinstance(message, str):
+        return jsonify({"error": "A mensagem precisa ser um texto."}), 400
+
+    message = message.strip()
 
     if not message:
-        return jsonify({
-            "error": "Mensagem vazia."
-        }), 400
+        return jsonify({"error": "Mensagem vazia."}), 400
 
     try:
         response = wattson.think(message)
-
-        return jsonify({
-            "response": response
-        })
-
+        return jsonify({"response": response})
     except Exception as error:
-        return jsonify({
-            "error": str(error)
-        }), 500
+        return jsonify({"error": str(error)}), 500
 
 
 if __name__ == "__main__":
-    app.run(
-        host="0.0.0.0",
-        port=5000,
-        debug=True
-    )
+    app.run(host="0.0.0.0", port=5000, debug=True)
