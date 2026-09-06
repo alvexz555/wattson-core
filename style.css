@@ -1,3 +1,4 @@
+```css
 /* =========================================================
    WATTSON CORE
    Interface principal
@@ -14,9 +15,12 @@ html {
 
 body {
     margin: 0;
+    min-width: 0;
     min-height: 100vh;
+
     background: #000;
     color: #f5f5f5;
+
     font-family:
         Inter,
         system-ui,
@@ -24,6 +28,15 @@ body {
         BlinkMacSystemFont,
         "Segoe UI",
         sans-serif;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+button {
+    -webkit-tap-highlight-color: transparent;
 }
 
 /* =========================================================
@@ -34,6 +47,7 @@ body {
     width: 100%;
     max-width: 1100px;
     min-height: 100vh;
+
     margin: 0 auto;
     padding: 32px 24px 40px;
 
@@ -49,6 +63,8 @@ body {
     align-items: center;
     justify-content: space-between;
 
+    gap: 20px;
+
     padding: 22px 24px;
 
     border: 1px solid #242424;
@@ -60,6 +76,9 @@ body {
 .header-identity {
     display: flex;
     align-items: center;
+
+    min-width: 0;
+
     gap: 14px;
 }
 
@@ -67,14 +86,21 @@ body {
     width: 42px;
     height: 42px;
 
+    flex: 0 0 42px;
+
     display: flex;
     align-items: center;
     justify-content: center;
 
-    font-size: 24px;
-
     border-radius: 10px;
+
     background: #111;
+
+    font-size: 24px;
+}
+
+.header-info {
+    min-width: 0;
 }
 
 .header-info h1 {
@@ -91,26 +117,33 @@ body {
     margin-top: 5px;
 
     color: #777;
+
     font-size: 12px;
 }
 
 .system-status {
     display: flex;
     align-items: center;
+
+    flex-shrink: 0;
+
     gap: 8px;
+
+    color: #48d597;
 
     font-size: 12px;
     font-weight: 600;
     letter-spacing: 0.5px;
-
-    color: #48d597;
 }
 
 .status-indicator {
     width: 8px;
     height: 8px;
 
+    flex: 0 0 8px;
+
     border-radius: 50%;
+
     background: #48d597;
 
     box-shadow: 0 0 8px rgba(72, 213, 151, 0.6);
@@ -130,6 +163,7 @@ body {
 
 .dashboard {
     display: grid;
+
     grid-template-columns: minmax(0, 1fr) 300px;
 
     gap: 20px;
@@ -140,6 +174,8 @@ body {
    ========================================================= */
 
 .panel {
+    min-width: 0;
+
     border: 1px solid #242424;
     border-radius: 12px;
 
@@ -150,6 +186,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    gap: 16px;
 
     padding: 20px 22px;
 
@@ -176,6 +214,8 @@ body {
 }
 
 .panel-status {
+    flex-shrink: 0;
+
     color: #555;
 
     font-size: 11px;
@@ -202,6 +242,8 @@ body {
     width: 96px;
     height: 96px;
 
+    flex: 0 0 96px;
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -216,34 +258,41 @@ body {
 
 .core-icon {
     font-size: 42px;
+    line-height: 1;
 }
 
 .core-pulse {
     position: absolute;
 
-    width: 8px;
-    height: 8px;
-
     right: 6px;
     bottom: 12px;
+
+    width: 8px;
+    height: 8px;
 
     border-radius: 50%;
 
     background: #48d597;
+
     box-shadow: 0 0 10px rgba(72, 213, 151, 0.7);
 }
 
 .core-state {
     margin: 0;
 
+    color: #f5f5f5;
+
     font-size: 17px;
     font-weight: 600;
+
     text-align: center;
 }
 
 .core-activity {
     display: flex;
     align-items: center;
+    justify-content: center;
+
     gap: 8px;
 
     margin-top: 10px;
@@ -251,6 +300,8 @@ body {
     color: #777;
 
     font-size: 12px;
+    line-height: 1.5;
+
     text-align: center;
 }
 
@@ -258,9 +309,10 @@ body {
     width: 6px;
     height: 6px;
 
-    flex-shrink: 0;
+    flex: 0 0 6px;
 
     border-radius: 50%;
+
     background: #48d597;
 }
 
@@ -281,7 +333,8 @@ body {
 
 .system-item {
     display: grid;
-    grid-template-columns: 28px 1fr;
+
+    grid-template-columns: 28px minmax(0, 1fr);
     grid-template-rows: auto auto;
 
     column-gap: 10px;
@@ -296,8 +349,9 @@ body {
 }
 
 .system-item:last-child {
-    border-bottom: none;
     padding-bottom: 4px;
+
+    border-bottom: none;
 }
 
 .item-icon {
@@ -314,13 +368,20 @@ body {
     color: #666;
 
     font-size: 11px;
+    line-height: 1.4;
 }
 
 .system-item strong {
+    display: block;
+
     margin-top: 4px;
+
+    color: #ddd;
 
     font-size: 13px;
     font-weight: 500;
+
+    overflow-wrap: anywhere;
 }
 
 .state-offline {
@@ -354,12 +415,19 @@ body {
 .language-selector {
     display: flex;
     align-items: center;
+
+    flex-shrink: 0;
+
     gap: 6px;
 }
 
 .language-button {
     width: 34px;
     height: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     padding: 0;
 
@@ -372,17 +440,14 @@ body {
     cursor: pointer;
 
     font-size: 15px;
-
-    transition:
-        background 0.15s ease,
-        border-color 0.15s ease,
-        color 0.15s ease;
 }
 
-.language-button:hover {
+.language-button:hover,
+.language-button:focus-visible {
     background: #111;
     border-color: #333;
     color: #fff;
+    outline: none;
 }
 
 .language-button.active {
@@ -399,6 +464,7 @@ body {
     max-height: 500px;
 
     overflow-y: auto;
+    overflow-x: hidden;
 
     padding: 28px 26px;
 
@@ -409,8 +475,10 @@ body {
 .message {
     display: flex;
     align-items: flex-start;
+
     gap: 12px;
 
+    width: fit-content;
     max-width: 78%;
 
     margin-bottom: 26px;
@@ -426,7 +494,7 @@ body {
     width: 32px;
     height: 32px;
 
-    flex-shrink: 0;
+    flex: 0 0 32px;
 
     display: flex;
     align-items: center;
@@ -442,11 +510,13 @@ body {
 
 .message-content {
     min-width: 0;
+    max-width: 100%;
 }
 
 .message-header {
     display: flex;
     align-items: center;
+
     gap: 9px;
 
     margin-bottom: 7px;
@@ -466,6 +536,7 @@ body {
 
 .message-time {
     color: #444;
+
     font-size: 10px;
 }
 
@@ -476,6 +547,9 @@ body {
 
     font-size: 13px;
     line-height: 1.7;
+
+    overflow-wrap: anywhere;
+    word-break: break-word;
 }
 
 .message.user .message-text {
@@ -489,12 +563,22 @@ body {
 .quick-actions {
     display: flex;
     align-items: center;
+
     gap: 8px;
 
     padding: 0 26px 18px;
+
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.quick-actions::-webkit-scrollbar {
+    display: none;
 }
 
 .quick-action {
+    flex-shrink: 0;
+
     padding: 7px 11px;
 
     border: 1px solid #222;
@@ -506,10 +590,7 @@ body {
     cursor: pointer;
 
     font-size: 10px;
-
-    transition:
-        color 0.15s ease,
-        border-color 0.15s ease;
+    white-space: nowrap;
 }
 
 .quick-action:hover {
@@ -529,14 +610,13 @@ body {
     display: flex;
     align-items: center;
 
+    width: 100%;
     min-height: 52px;
 
     border: 1px solid #292929;
     border-radius: 9px;
 
     background: #080808;
-
-    transition: border-color 0.15s ease;
 }
 
 .input-wrapper:focus-within {
@@ -544,6 +624,8 @@ body {
 }
 
 .input-icon {
+    flex: 0 0 auto;
+
     margin-left: 15px;
 
     color: #555;
@@ -552,6 +634,7 @@ body {
 }
 
 #messageInput {
+    min-width: 0;
     flex: 1;
 
     width: 100%;
@@ -576,6 +659,8 @@ body {
     width: 40px;
     height: 40px;
 
+    flex: 0 0 40px;
+
     margin-right: 5px;
 
     display: flex;
@@ -592,10 +677,6 @@ body {
 
     font-size: 16px;
     font-weight: 700;
-
-    transition:
-        background 0.15s ease,
-        transform 0.1s ease;
 }
 
 .send-button:hover {
@@ -635,7 +716,8 @@ body {
 
 .activity-item {
     display: grid;
-    grid-template-columns: 70px 70px 1fr;
+
+    grid-template-columns: 70px 70px minmax(0, 1fr);
 
     gap: 12px;
 
@@ -656,11 +738,16 @@ body {
 
 .activity-type {
     color: #666;
+
     font-weight: 600;
 }
 
 .activity-message {
+    min-width: 0;
+
     color: #888;
+
+    overflow-wrap: anywhere;
 }
 
 /* =========================================================
@@ -673,6 +760,7 @@ body {
     color: #444;
 
     font-size: 10px;
+
     text-align: center;
 }
 
@@ -698,13 +786,13 @@ body {
 }
 
 /* =========================================================
-   RESPONSIVO
+   TABLET
    ========================================================= */
 
 @media (max-width: 760px) {
 
     .app {
-        padding: 16px 12px 28px;
+        padding: 16px 14px 28px;
     }
 
     .header {
@@ -721,10 +809,13 @@ body {
 
     .core-content {
         min-height: 250px;
+
+        padding: 36px 24px;
     }
 
     .chat {
         min-height: 350px;
+
         padding: 24px 18px;
     }
 
@@ -733,58 +824,388 @@ body {
     }
 
     .quick-actions {
-        padding-left: 18px;
         padding-right: 18px;
+        padding-left: 18px;
     }
 
     .input-area {
-        padding-left: 18px;
         padding-right: 18px;
+        padding-left: 18px;
     }
 
     .activity-item {
-        grid-template-columns: 60px 60px 1fr;
+        grid-template-columns: 60px 60px minmax(0, 1fr);
+
         gap: 8px;
     }
 }
 
+/* =========================================================
+   CELULAR
+   ========================================================= */
+
 @media (max-width: 480px) {
 
+    .app {
+        padding: 10px 8px 24px;
+    }
+
+    /* HEADER */
+
     .header {
-        align-items: flex-start;
+        align-items: center;
+
+        gap: 10px;
+
+        padding: 15px 14px;
+
+        border-radius: 10px;
+    }
+
+    .header-identity {
+        gap: 10px;
+    }
+
+    .header-icon {
+        width: 36px;
+        height: 36px;
+
+        flex-basis: 36px;
+
+        border-radius: 8px;
+
+        font-size: 20px;
     }
 
     .header-info h1 {
-        font-size: 18px;
+        font-size: 17px;
+    }
+
+    .version {
+        margin-top: 3px;
+
+        font-size: 10px;
     }
 
     .system-status {
-        padding-top: 4px;
+        gap: 5px;
+
+        font-size: 9px;
+        letter-spacing: 0.3px;
     }
 
-    .core-orb {
-        width: 82px;
-        height: 82px;
+    .status-indicator {
+        width: 7px;
+        height: 7px;
+
+        flex-basis: 7px;
     }
 
-    .core-icon {
-        font-size: 36px;
+    /* MAIN */
+
+    .main-content {
+        margin-top: 14px;
+    }
+
+    /* PANELS */
+
+    .panel {
+        border-radius: 10px;
     }
 
     .panel-header {
-        padding: 18px;
+        gap: 10px;
+
+        padding: 15px 14px;
     }
 
+    .panel-label {
+        margin-bottom: 4px;
+
+        font-size: 9px;
+        letter-spacing: 1.2px;
+    }
+
+    .panel-header h2 {
+        font-size: 13px;
+    }
+
+    .panel-status {
+        font-size: 9px;
+    }
+
+    /* CORE */
+
+    .core-content {
+        min-height: 220px;
+
+        padding: 30px 16px;
+    }
+
+    .core-orb {
+        width: 76px;
+        height: 76px;
+
+        flex-basis: 76px;
+
+        margin-bottom: 20px;
+    }
+
+    .core-icon {
+        font-size: 34px;
+    }
+
+    .core-pulse {
+        right: 4px;
+        bottom: 9px;
+
+        width: 7px;
+        height: 7px;
+    }
+
+    .core-state {
+        font-size: 15px;
+    }
+
+    .core-activity {
+        max-width: 240px;
+
+        margin-top: 8px;
+
+        font-size: 11px;
+        line-height: 1.5;
+    }
+
+    /* SISTEMA */
+
+    .system-info {
+        padding: 10px 14px;
+    }
+
+    .system-item {
+        grid-template-columns: 25px minmax(0, 1fr);
+
+        column-gap: 8px;
+
+        padding: 13px 0;
+    }
+
+    .system-item:first-child {
+        padding-top: 4px;
+    }
+
+    .system-item:last-child {
+        padding-bottom: 4px;
+    }
+
+    .item-icon {
+        font-size: 14px;
+    }
+
+    .system-item-label {
+        font-size: 10px;
+    }
+
+    .system-item strong {
+        margin-top: 3px;
+
+        font-size: 12px;
+    }
+
+    /* COMUNICAÇÃO */
+
+    .communication-panel {
+        margin-top: 14px;
+    }
+
+    .communication-panel > .panel-header {
+        padding-right: 12px;
+    }
+
+    .language-selector {
+        gap: 4px;
+    }
+
+    .language-button {
+        width: 31px;
+        height: 28px;
+
+        font-size: 14px;
+    }
+
+    /* CHAT */
+
     .chat {
-        min-height: 320px;
+        min-height: 300px;
+        max-height: 52vh;
+
+        padding: 20px 13px;
     }
 
     .message {
+        gap: 9px;
+
         max-width: 94%;
+
+        margin-bottom: 22px;
+    }
+
+    .message-avatar {
+        width: 29px;
+        height: 29px;
+
+        flex-basis: 29px;
+
+        border-radius: 7px;
+
+        font-size: 14px;
+    }
+
+    .message-header {
+        gap: 7px;
+
+        margin-bottom: 5px;
+    }
+
+    .message-label {
+        font-size: 9px;
+    }
+
+    .message-time {
+        font-size: 9px;
+    }
+
+    .message-text {
+        font-size: 12px;
+        line-height: 1.65;
+    }
+
+    /* QUICK ACTIONS */
+
+    .quick-actions {
+        gap: 6px;
+
+        padding: 0 13px 13px;
+    }
+
+    .quick-action {
+        padding: 7px 10px;
+
+        font-size: 9px;
+    }
+
+    /* INPUT */
+
+    .input-area {
+        padding: 0 13px 15px;
+    }
+
+    .input-wrapper {
+        min-height: 50px;
+
+        border-radius: 8px;
+    }
+
+    .input-icon {
+        margin-left: 12px;
+
+        font-size: 14px;
+    }
+
+    #messageInput {
+        padding: 0 9px;
+
+        font-size: 12px;
+    }
+
+    .send-button {
+        width: 38px;
+        height: 38px;
+
+        flex-basis: 38px;
+    }
+
+    /* ATIVIDADE */
+
+    .activity-panel {
+        margin-top: 14px;
+    }
+
+    .activity-list {
+        padding: 12px 14px;
     }
 
     .activity-item {
-        grid-template-columns: 1fr;
-        gap: 4px;
+        grid-template-columns: 52px 55px minmax(0, 1fr);
+
+        gap: 6px;
+
+        padding: 9px 0;
+
+        font-size: 9px;
+    }
+
+    /* FOOTER */
+
+    .footer {
+        padding-top: 20px;
+
+        font-size: 9px;
     }
 }
+
+/* =========================================================
+   CELULARES MUITO PEQUENOS
+   ========================================================= */
+
+@media (max-width: 360px) {
+
+    .app {
+        padding-right: 6px;
+        padding-left: 6px;
+    }
+
+    .header {
+        padding: 13px 11px;
+    }
+
+    .header-icon {
+        width: 32px;
+        height: 32px;
+
+        flex-basis: 32px;
+
+        font-size: 18px;
+    }
+
+    .header-info h1 {
+        font-size: 15px;
+    }
+
+    .version {
+        font-size: 9px;
+    }
+
+    .system-status {
+        font-size: 8px;
+    }
+
+    .panel-header {
+        padding: 13px 12px;
+    }
+
+    .chat {
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+
+    .message {
+        max-width: 96%;
+    }
+
+    .input-area {
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+}
+```
