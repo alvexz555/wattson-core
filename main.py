@@ -1,34 +1,31 @@
 class WattsonCore:
+"""
+Núcleo principal do Wattson.
+
+```
+Responsabilidades desta versão:
+- receber uma mensagem;
+- enviar a mensagem para um provedor de IA;
+- retornar a resposta.
+
+O Core não conhece qual IA está sendo utilizada.
+"""
+
+def __init__(self, ai_provider):
+    self.name = "Wattson"
+    self.version = "0.2.0"
+
+    self.ai_provider = ai_provider
+
+def think(self, message: str) -> str:
     """
-    Núcleo principal do Wattson.
-
-    Nesta primeira versão:
-    - recebe uma mensagem;
-    - envia a mensagem para o modelo de IA;
-    - retorna a resposta.
+    Processa uma entrada através do provedor de IA.
     """
 
-    def __init__(self, client, model="gpt-5.6-luna"):
-        self.name = "Wattson"
-        self.version = "0.2.0"
+    if not message or not message.strip():
+        return "Não recebi nenhuma entrada."
 
-        self.client = client
-        self.model = model
+    response = self.ai_provider.generate(message)
 
-    def think(self, message: str) -> str:
-
-        if not message.strip():
-            return "Não recebi nenhuma entrada."
-
-        response = self.client.responses.create(
-            model=self.model,
-            instructions=(
-                "Você é Wattson, o núcleo de uma inteligência "
-                "artificial experimental. "
-                "Responda sempre em português do Brasil. "
-                "Seja natural, objetivo e útil."
-            ),
-            input=message
-        )
-
-        return response.output_text
+    return response
+```
