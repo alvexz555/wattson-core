@@ -11,37 +11,3 @@ flowchart TD
     UI --> SERVER
     SERVER --> CORE
 ```
-                              
-                              
-                              
-                              
-                              
-                              
-                              │
-              ┌───────────────┼───────────────┐
-              │               │               │
-              ▼               ▼               ▼
-         PERCEPTION         MEMORY        REASONING
-              │               │               │
-              └───────────────┼───────────────┘
-                              │
-                              ▼
-                         DECISION
-                              │
-                              ▼
-                         PLANNING
-                              │
-                              ▼
-                           ACTION
-                              │
-                    ┌─────────┴─────────┐
-                    ▼                   ▼
-                 ROBOT               SIMULATOR
-
-
-                    AI PROVIDER
-                         │
-              ┌──────────┴──────────┐
-              ▼                     ▼
-         LOCAL MODEL             OPENAI
-           gratuito                API
