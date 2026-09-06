@@ -98,6 +98,107 @@
 
         .panel-title {
             font-size: 15px;
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Wattson Core</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #0b0f14;
+            color: #e6edf3;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        /* HEADER */
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 18px 20px;
+            background: #111821;
+            border: 1px solid #202b36;
+            border-radius: 12px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brain {
+            font-size: 32px;
+        }
+
+        .logo h1 {
+            font-size: 22px;
+        }
+
+        .version {
+            color: #7f8c99;
+            font-size: 13px;
+            margin-top: 3px;
+        }
+
+        .status {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #7ee787;
+            font-size: 14px;
+        }
+
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #7ee787;
+        }
+
+        /* GRID */
+
+        .dashboard {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+        }
+
+        .panel {
+            background: #111821;
+            border: 1px solid #202b36;
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        .panel-title {
+            font-size: 15px;
             color: #9da9b5;
             margin-bottom: 15px;
             text-transform: uppercase;
@@ -514,6 +615,22 @@
 
 <script>
 
+    /*
+     * ENDPOINT PÚBLICO DO WATTSON CORE
+     *
+     * GitHub Pages
+     *      ↓
+     * Cloudflare Tunnel
+     *      ↓
+     * Flask
+     *      ↓
+     * Wattson Core
+     */
+
+    const API_URL =
+        "https://clock-smell-atlas-formerly.trycloudflare.com/api/think";
+
+
     const input =
         document.getElementById("messageInput");
 
@@ -636,7 +753,7 @@
 
             const response =
                 await fetch(
-                    "/api/think",
+                    API_URL,
                     {
                         method: "POST",
 
@@ -729,4 +846,4 @@
 
 </body>
 
-</html>
+</html>`
