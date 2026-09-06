@@ -1,54 +1,72 @@
 from flask import Flask, jsonify, request, send_from_directory
-from openai import OpenAI
 
 from main import WattsonCore
 
-from dotenv import load_dotenv
+class TemporaryAIProvider:
+"""
+Provedor temporário de IA.
 
-load_dotenv()
+```
+Existe apenas para permitir que o Wattson Core
+funcione enquanto o provedor real de IA ainda
+está sendo implementado.
+"""
 
-app = Flask(__name__, static_folder="interface")
+def generate(self, message: str) -> str:
+    return (
+        "O provedor de IA ainda não foi conectado. "
+        f"Recebi sua mensagem: {message}"
+    )
+```
 
-client = OpenAI()
+app = Flask(**name**)
 
-wattson = WattsonCore(client)
+ai_provider = TemporaryAIProvider()
 
+wattson = WattsonCore(ai_provider)
 
 @app.get("/")
 def index():
-    return send_from_directory(
-        "interface",
-        "index.html"
-    )
-
+return send_from_directory(
+".",
+"index.html"
+)
 
 @app.post("/api/think")
 def think():
-    data = request.get_json(silent=True) or {}
+data = request.get_json(silent=True) or {}
 
-    message = data.get("message", "").strip()
+```
+message = data.get("message", "")
 
-    if not message:
-        return jsonify({
-            "error": "Mensagem vazia."
-        }), 400
+if not isinstance(message, str):
+    return jsonify({
+        "error": "A mensagem precisa ser um texto."
+    }), 400
 
-    try:
-        response = wattson.think(message)
+message = message.strip()
 
-        return jsonify({
-            "response": response
-        })
+if not message:
+    return jsonify({
+        "error": "Mensagem vazia."
+    }), 400
 
-    except Exception as error:
-        return jsonify({
-            "error": str(error)
-        }), 500
+try:
+    response = wattson.think(message)
 
+    return jsonify({
+        "response": response
+    })
 
-if __name__ == "__main__":
-    app.run(
-        host="0.0.0.0",
-        port=5000,
-        debug=True
-    )
+except Exception as error:
+    return jsonify({
+        "error": str(error)
+    }), 500
+```
+
+if **name** == "**main**":
+app.run(
+host="0.0.0.0",
+port=5000,
+debug=True
+)
