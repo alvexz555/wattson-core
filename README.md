@@ -4,7 +4,7 @@ Modular AI core designed for future integration with a physical robot.
                          ```mermaid
 flowchart TD
 
-    UI["Interface"]
+    UI["Interface"] TD
     SERVER["Servidor"]
     CORE["Wattson Core"]
 
