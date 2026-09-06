@@ -2,6 +2,7 @@
 <html lang="pt-BR">
 
 <head>
+
     <meta charset="UTF-8">
 
     <meta
@@ -15,327 +16,92 @@
     >
 
     <title>Wattson Core</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
 </head>
+
 
 <body>
 
-    <div class="app">
+<div class="app">
 
-        <!-- ==================== HEADER ==================== -->
 
-        <header class="header">
+    <!-- =====================================================
+         HEADER
+         ===================================================== -->
 
-            <div class="header-identity">
+    <header class="header">
 
-                <div class="header-icon" aria-hidden="true">
-                    🧠
-                </div>
-
-                <div class="header-info">
-
-                    <h1>
-                        Wattson Core
-                    </h1>
-
-                    <span class="version">
-                        Experimental Intelligence System v0.1.0
-                    </span>
-
-                </div>
-
-            </div>
-
+        <div class="header-identity">
 
             <div
-                class="system-status"
-                id="systemStatus"
-                data-status="online"
+                class="header-icon"
+                aria-hidden="true"
             >
+                🧠
+            </div>
 
-                <span
-                    class="status-indicator"
-                    aria-hidden="true"
-                ></span>
+            <div class="header-info">
 
-                <span class="status-text">
-                    ONLINE
+                <h1>
+                    Wattson Core
+                </h1>
+
+                <span class="version">
+                    Experimental Intelligence System v0.1.0
                 </span>
 
             </div>
 
-        </header>
+        </div>
 
 
-        <!-- ==================== MAIN ==================== -->
+        <div
+            class="system-status"
+            id="systemStatus"
+            data-status="online"
+        >
 
-        <main class="main-content">
+            <span
+                class="status-indicator"
+                aria-hidden="true"
+            ></span>
 
+            <span class="status-text">
+                ONLINE
+            </span>
 
-            <!-- ==================== DASHBOARD ==================== -->
+        </div>
 
-            <section class="dashboard">
+    </header>
 
 
-                <!-- ---------- CORE STATUS ---------- -->
 
-                <section
-                    class="panel core-panel"
-                    aria-labelledby="coreStatusTitle"
-                >
+    <!-- =====================================================
+         MAIN
+         ===================================================== -->
 
-                    <div class="panel-header">
+    <main class="main-content">
 
-                        <div>
 
-                            <span class="panel-label">
-                                SYSTEM
-                            </span>
+        <!-- =================================================
+             DASHBOARD
+             ================================================= -->
 
-                            <h2 id="coreStatusTitle">
-                                CORE STATUS
-                            </h2>
+        <section class="dashboard">
 
-                        </div>
 
-                        <span
-                            class="panel-status"
-                            id="corePanelStatus"
-                        >
-                            IDLE
-                        </span>
-
-                    </div>
-
-
-                    <div class="core-content">
-
-                        <div
-                            class="core-orb"
-                            id="coreOrb"
-                            aria-label="Núcleo do Wattson"
-                        >
-
-                            <span
-                                class="core-icon"
-                                aria-hidden="true"
-                            >
-                                🧠
-                            </span>
-
-                            <span
-                                class="core-pulse"
-                                aria-hidden="true"
-                            ></span>
-
-                        </div>
-
-
-                        <div class="core-state">
-
-                            <h3 id="coreState">
-                                Sistema operacional
-                            </h3>
-
-                            <p id="coreDescription">
-                                Wattson Core está aguardando entrada.
-                            </p>
-
-                        </div>
-
-
-                        <div
-                            class="core-activity"
-                            id="coreActivityIndicator"
-                        >
-
-                            <span class="activity-dot"></span>
-
-                            <span id="coreActivityText">
-                                Aguardando entrada
-                            </span>
-
-                        </div>
-
-                    </div>
-
-                </section>
-
-
-                <!-- ---------- SYSTEM ---------- -->
-
-                <section
-                    class="panel system-panel"
-                    aria-labelledby="systemTitle"
-                >
-
-                    <div class="panel-header">
-
-                        <div>
-
-                            <span class="panel-label">
-                                HARDWARE
-                            </span>
-
-                            <h2 id="systemTitle">
-                                SISTEMA
-                            </h2>
-
-                        </div>
-
-                        <span
-                            class="system-icon"
-                            aria-hidden="true"
-                        >
-                            ⚙️
-                        </span>
-
-                    </div>
-
-
-                    <div class="system-info">
-
-
-                        <div class="system-item">
-
-                            <div class="system-item-label">
-
-                                <span
-                                    class="item-icon"
-                                    aria-hidden="true"
-                                >
-                                    🧠
-                                </span>
-
-                                <span>
-                                    Nome
-                                </span>
-
-                            </div>
-
-                            <strong>
-                                Wattson
-                            </strong>
-
-                        </div>
-
-
-                        <div class="system-item">
-
-                            <div class="system-item-label">
-
-                                <span
-                                    class="item-icon"
-                                    aria-hidden="true"
-                                >
-                                    #️⃣
-                                </span>
-
-                                <span>
-                                    Versão
-                                </span>
-
-                            </div>
-
-                            <strong>
-                                0.1.0
-                            </strong>
-
-                        </div>
-
-
-                        <div class="system-item">
-
-                            <div class="system-item-label">
-
-                                <span
-                                    class="item-icon"
-                                    aria-hidden="true"
-                                >
-                                    ⚙️
-                                </span>
-
-                                <span>
-                                    Estado
-                                </span>
-
-                            </div>
-
-                            <strong
-                                id="systemState"
-                                data-state="idle"
-                            >
-                                Idle
-                            </strong>
-
-                        </div>
-
-
-                        <div class="system-item">
-
-                            <div class="system-item-label">
-
-                                <span
-                                    class="item-icon"
-                                    aria-hidden="true"
-                                >
-                                    💾
-                                </span>
-
-                                <span>
-                                    Memória
-                                </span>
-
-                            </div>
-
-                            <strong
-                                class="state-offline"
-                                id="memoryState"
-                            >
-                                Offline
-                            </strong>
-
-                        </div>
-
-
-                        <div class="system-item">
-
-                            <div class="system-item-label">
-
-                                <span
-                                    class="item-icon"
-                                    aria-hidden="true"
-                                >
-                                    🤖
-                                </span>
-
-                                <span>
-                                    Robô
-                                </span>
-
-                            </div>
-
-                            <strong
-                                class="state-offline"
-                                id="robotState"
-                            >
-                                Desconectado
-                            </strong>
-
-                        </div>
-
-
-                    </div>
-
-                </section>
-
-            </section>
-
-
-            <!-- ==================== COMMUNICATION ==================== -->
+            <!-- =============================================
+                 CORE STATUS
+                 ============================================= -->
 
             <section
-                class="panel communication-panel"
-                aria-labelledby="communicationTitle"
+                class="panel core-panel"
+                aria-labelledby="coreStatusTitle"
             >
 
                 <div class="panel-header">
@@ -343,144 +109,403 @@
                     <div>
 
                         <span class="panel-label">
-                            INTERFACE
+                            SYSTEM
                         </span>
 
-                        <h2 id="communicationTitle">
-                            COMUNICAÇÃO
+                        <h2 id="coreStatusTitle">
+                            CORE STATUS
                         </h2>
 
                     </div>
 
 
-                    <!-- LANGUAGE -->
-
-                    <div
-                        class="language-selector"
-                        aria-label="Idioma"
+                    <span
+                        class="panel-status"
+                        id="corePanelStatus"
                     >
-
-                        <button
-                            type="button"
-                            class="language-button active"
-                            data-language="pt-BR"
-                            title="Português"
-                        >
-                            🇧🇷
-                        </button>
-
-                        <button
-                            type="button"
-                            class="language-button"
-                            data-language="en"
-                            title="English"
-                        >
-                            🇺🇸
-                        </button>
-
-                    </div>
+                        IDLE
+                    </span>
 
                 </div>
 
 
-                <!-- ---------- CHAT ---------- -->
-
-                <div
-                    class="chat"
-                    id="chat"
-                    aria-live="polite"
-                    aria-label="Histórico da conversa"
-                >
+                <div class="core-content">
 
 
-                    <!-- WATTSON MESSAGE -->
+                    <div
+                        class="core-orb"
+                        id="coreOrb"
+                        aria-label="Núcleo do Wattson"
+                    >
 
-                    <div class="message wattson">
-
-                        <div
-                            class="message-avatar"
+                        <span
+                            class="core-icon"
                             aria-hidden="true"
                         >
                             🧠
-                        </div>
-
-                        <div class="message-content">
-
-                            <div class="message-header">
-
-                                <span class="message-label">
-                                    WATTSON
-                                </span>
-
-                            </div>
-
-                            <div class="message-text">
-                                Olá. Eu sou o Wattson Core.
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <!-- ---------- QUICK ACTIONS ---------- -->
-
-                <div class="quick-actions">
-
-                    <button
-                        type="button"
-                        class="quick-action"
-                        id="clearChatButton"
-                    >
-                        🧹 Limpar chat
-                    </button>
-
-                    <button
-                        type="button"
-                        class="quick-action"
-                        id="translateButton"
-                    >
-                        🌐 Traduzir
-                    </button>
-
-                </div>
-
-
-                <!-- ---------- INPUT ---------- -->
-
-                <form
-                    class="input-area"
-                    id="messageForm"
-                >
-
-                    <div class="input-wrapper">
-
-                        <span
-                            class="input-icon"
-                            aria-hidden="true"
-                        >
-                            💬
                         </span>
 
-                        <input
-                            type="text"
-                            id="messageInput"
-                            name="message"
-                            placeholder="Digite uma mensagem..."
-                            autocomplete="off"
-                            maxlength="2000"
-                            aria-label="Mensagem"
-                        >
+                        <span
+                            class="core-pulse"
+                            aria-hidden="true"
+                        ></span>
 
                     </div>
+
+
+                    <div class="core-state">
+
+                        <h3 id="coreState">
+                            Sistema operacional
+                        </h3>
+
+                        <p id="coreDescription">
+                            Wattson Core está aguardando entrada.
+                        </p>
+
+                    </div>
+
+
+                    <div
+                        class="core-activity"
+                        id="coreActivityIndicator"
+                    >
+
+                        <span
+                            class="activity-dot"
+                            aria-hidden="true"
+                        ></span>
+
+                        <span id="coreActivityText">
+                            Aguardando entrada
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =============================================
+                 SISTEMA
+                 ============================================= -->
+
+            <section
+                class="panel system-panel"
+                aria-labelledby="systemTitle"
+            >
+
+                <div class="panel-header">
+
+                    <div>
+
+                        <span class="panel-label">
+                            HARDWARE
+                        </span>
+
+                        <h2 id="systemTitle">
+                            SISTEMA
+                        </h2>
+
+                    </div>
+
+
+                    <span
+                        class="system-icon"
+                        aria-hidden="true"
+                    >
+                        ⚙️
+                    </span>
+
+                </div>
+
+
+                <div class="system-info">
+
+
+                    <div class="system-item">
+
+                        <span
+                            class="item-icon"
+                            aria-hidden="true"
+                        >
+                            🧠
+                        </span>
+
+                        <span class="system-item-label">
+                            Nome
+                        </span>
+
+                        <strong>
+                            Wattson
+                        </strong>
+
+                    </div>
+
+
+                    <div class="system-item">
+
+                        <span
+                            class="item-icon"
+                            aria-hidden="true"
+                        >
+                            #️⃣
+                        </span>
+
+                        <span class="system-item-label">
+                            Versão
+                        </span>
+
+                        <strong>
+                            0.1.0
+                        </strong>
+
+                    </div>
+
+
+                    <div class="system-item">
+
+                        <span
+                            class="item-icon"
+                            aria-hidden="true"
+                        >
+                            ⚙️
+                        </span>
+
+                        <span class="system-item-label">
+                            Estado
+                        </span>
+
+                        <strong
+                            id="systemState"
+                            data-state="idle"
+                        >
+                            Idle
+                        </strong>
+
+                    </div>
+
+
+                    <div class="system-item">
+
+                        <span
+                            class="item-icon"
+                            aria-hidden="true"
+                        >
+                            💾
+                        </span>
+
+                        <span class="system-item-label">
+                            Memória
+                        </span>
+
+                        <strong
+                            class="state-offline"
+                            id="memoryState"
+                        >
+                            Offline
+                        </strong>
+
+                    </div>
+
+
+                    <div class="system-item">
+
+                        <span
+                            class="item-icon"
+                            aria-hidden="true"
+                        >
+                            🤖
+                        </span>
+
+                        <span class="system-item-label">
+                            Robô
+                        </span>
+
+                        <strong
+                            class="state-offline"
+                            id="robotState"
+                        >
+                            Desconectado
+                        </strong>
+
+                    </div>
+
+
+                </div>
+
+            </section>
+
+        </section>
+
+
+
+        <!-- =================================================
+             COMMUNICATION
+             ================================================= -->
+
+        <section
+            class="panel communication-panel"
+            aria-labelledby="communicationTitle"
+        >
+
+
+            <div class="panel-header">
+
+                <div>
+
+                    <span class="panel-label">
+                        INTERFACE
+                    </span>
+
+                    <h2 id="communicationTitle">
+                        COMUNICAÇÃO
+                    </h2>
+
+                </div>
+
+
+                <div
+                    class="language-selector"
+                    aria-label="Idioma"
+                >
+
+                    <button
+                        type="button"
+                        class="language-button active"
+                        data-language="pt-BR"
+                        title="Português"
+                        aria-label="Português"
+                    >
+                        🇧🇷
+                    </button>
+
+                    <button
+                        type="button"
+                        class="language-button"
+                        data-language="en"
+                        title="English"
+                        aria-label="English"
+                    >
+                        🇺🇸
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =============================================
+                 CHAT
+                 ============================================= -->
+
+            <div
+                class="chat"
+                id="chat"
+                aria-live="polite"
+                aria-label="Histórico da conversa"
+            >
+
+
+                <div class="message wattson">
+
+                    <div
+                        class="message-avatar"
+                        aria-hidden="true"
+                    >
+                        🧠
+                    </div>
+
+
+                    <div class="message-content">
+
+                        <div class="message-header">
+
+                            <span class="message-label">
+                                WATTSON
+                            </span>
+
+                        </div>
+
+
+                        <div class="message-text">
+                            Olá. Eu sou o Wattson Core.
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =============================================
+                 QUICK ACTIONS
+                 ============================================= -->
+
+            <div class="quick-actions">
+
+                <button
+                    type="button"
+                    class="quick-action"
+                    id="clearChatButton"
+                >
+                    🧹 Limpar chat
+                </button>
+
+
+                <button
+                    type="button"
+                    class="quick-action"
+                    id="translateButton"
+                >
+                    🌐 Traduzir
+                </button>
+
+            </div>
+
+
+
+            <!-- =============================================
+                 INPUT
+                 ============================================= -->
+
+            <form
+                class="input-area"
+                id="messageForm"
+            >
+
+                <div class="input-wrapper">
+
+                    <span
+                        class="input-icon"
+                        aria-hidden="true"
+                    >
+                        💬
+                    </span>
+
+
+                    <input
+                        type="text"
+                        id="messageInput"
+                        name="message"
+                        placeholder="Digite uma mensagem..."
+                        autocomplete="off"
+                        maxlength="2000"
+                        aria-label="Mensagem"
+                    >
 
 
                     <button
                         type="submit"
                         id="sendButton"
                         class="send-button"
+                        aria-label="Enviar mensagem"
                     >
 
                         <span
@@ -496,676 +521,586 @@
 
                     </button>
 
-                </form>
+                </div>
 
-            </section>
+            </form>
+
+        </section>
 
 
-            <!-- ==================== ACTIVITY ==================== -->
 
-            <section
-                class="panel activity-panel"
-                aria-labelledby="activityTitle"
+        <!-- =================================================
+             ACTIVITY MONITOR
+             ================================================= -->
+
+        <section
+            class="panel activity-panel"
+            aria-labelledby="activityTitle"
+        >
+
+            <div class="panel-header">
+
+                <div>
+
+                    <span class="panel-label">
+                        MONITOR
+                    </span>
+
+                    <h2 id="activityTitle">
+                        ATIVIDADE DO CORE
+                    </h2>
+
+                </div>
+
+
+                <span
+                    class="activity-status"
+                    id="activityStatus"
+                >
+                    ● LIVE
+                </span>
+
+            </div>
+
+
+            <div
+                class="activity-list"
+                id="activity"
+                aria-live="polite"
             >
 
-                <div class="panel-header">
 
-                    <div>
-
-                        <span class="panel-label">
-                            MONITOR
-                        </span>
-
-                        <h2 id="activityTitle">
-                            ATIVIDADE DO CORE
-                        </h2>
-
-                    </div>
+                <div class="activity-item">
 
                     <span
-                        class="activity-status"
-                        id="activityStatus"
+                        class="activity-time"
+                        data-time
                     >
-                        ● LIVE
+                        --:--:--
+                    </span>
+
+                    <span class="activity-type">
+                        SYSTEM
+                    </span>
+
+                    <span class="activity-message">
+                        Sistema iniciado.
                     </span>
 
                 </div>
 
 
-                <div
-                    class="activity-list"
-                    id="activity"
-                    aria-live="polite"
-                >
+                <div class="activity-item">
 
-                    <div class="activity-item">
+                    <span
+                        class="activity-time"
+                        data-time
+                    >
+                        --:--:--
+                    </span>
 
-                        <span
-                            class="activity-time"
-                            data-time
-                        >
-                            --:--:--
-                        </span>
+                    <span class="activity-type">
+                        CORE
+                    </span>
 
-                        <span class="activity-type">
-                            SYSTEM
-                        </span>
-
-                        <span class="activity-message">
-                            Sistema iniciado.
-                        </span>
-
-                    </div>
-
-
-                    <div class="activity-item">
-
-                        <span
-                            class="activity-time"
-                            data-time
-                        >
-                            --:--:--
-                        </span>
-
-                        <span class="activity-type">
-                            CORE
-                        </span>
-
-                        <span class="activity-message">
-                            Aguardando entrada do usuário.
-                        </span>
-
-                    </div>
+                    <span class="activity-message">
+                        Aguardando entrada do usuário.
+                    </span>
 
                 </div>
 
-            </section>
 
-        </main>
+            </div>
 
+        </section>
 
-        <!-- ==================== FOOTER ==================== -->
-
-        <footer class="footer">
-
-            <span>
-                Wattson Core
-            </span>
-
-            <span>
-                Experimental Intelligence System
-            </span>
-
-        </footer>
-
-    </div>
+    </main>
 
 
-    <!-- ==================== JAVASCRIPT ==================== -->
 
-    <script>
+    <!-- =====================================================
+         FOOTER
+         ===================================================== -->
 
-        /*
-         * =====================================================
-         * WATTSON CORE
-         * =====================================================
-         *
-         * GitHub Pages
-         *      ↓
-         * Cloudflare Tunnel
-         *      ↓
-         * Flask
-         *      ↓
-         * Wattson Core
-         *      ↓
-         * LocalAIProvider
-         *      ↓
-         * Ollama
-         *      ↓
-         * Gemma 4 E2B
-         *
-         * NÃO ALTERAR O API_URL SEM ALTERAR O BACKEND.
-         */
+    <footer class="footer">
 
-        const API_URL =
-            "https://clock-smell-atlas-formerly.trycloudflare.com/api/think";
+        <span>
+            Wattson Core
+        </span>
+
+        <span>
+            Experimental Intelligence System
+        </span>
+
+    </footer>
+
+</div>
 
 
-        /* ==================== ELEMENTOS ==================== */
 
-        const input =
-            document.getElementById("messageInput");
+<!-- =========================================================
+     JAVASCRIPT
+     ========================================================= -->
 
-        const chat =
-            document.getElementById("chat");
+<script>
 
-        const activity =
-            document.getElementById("activity");
-
-        const form =
-            document.getElementById("messageForm");
-
-        const sendButton =
-            document.getElementById("sendButton");
-
-        const sendButtonText =
-            document.getElementById("sendButtonText");
-
-        const systemStatus =
-            document.getElementById("systemStatus");
-
-        const systemState =
-            document.getElementById("systemState");
-
-        const corePanelStatus =
-            document.getElementById("corePanelStatus");
-
-        const coreState =
-            document.getElementById("coreState");
-
-        const coreDescription =
-            document.getElementById("coreDescription");
-
-        const coreActivityText =
-            document.getElementById("coreActivityText");
-
-        const clearChatButton =
-            document.getElementById("clearChatButton");
-
-        const translateButton =
-            document.getElementById("translateButton");
+/*
+ * ============================================================
+ * WATTSON CORE
+ * ============================================================
+ *
+ * Interface
+ *     ↓
+ * Cloudflare Tunnel
+ *     ↓
+ * Flask
+ *     ↓
+ * Wattson Core
+ *     ↓
+ * LocalAIProvider
+ *     ↓
+ * Ollama
+ *     ↓
+ * Gemma 4 E2B
+ *
+ * ============================================================
+ */
 
 
-        /* ==================== HORÁRIO ==================== */
+const API_URL =
+    "https://clock-smell-atlas-formerly.trycloudflare.com/api/think";
 
-        function getTime() {
 
-            return new Date().toLocaleTimeString(
-                "pt-BR",
+
+/* ============================================================
+   ELEMENTOS
+   ============================================================ */
+
+const input =
+    document.getElementById("messageInput");
+
+const chat =
+    document.getElementById("chat");
+
+const activity =
+    document.getElementById("activity");
+
+const form =
+    document.getElementById("messageForm");
+
+const sendButton =
+    document.getElementById("sendButton");
+
+const sendButtonText =
+    document.getElementById("sendButtonText");
+
+const systemStatus =
+    document.getElementById("systemStatus");
+
+const systemState =
+    document.getElementById("systemState");
+
+const corePanelStatus =
+    document.getElementById("corePanelStatus");
+
+const coreState =
+    document.getElementById("coreState");
+
+const coreDescription =
+    document.getElementById("coreDescription");
+
+const coreActivityText =
+    document.getElementById("coreActivityText");
+
+const clearChatButton =
+    document.getElementById("clearChatButton");
+
+const translateButton =
+    document.getElementById("translateButton");
+
+
+
+/* ============================================================
+   HORÁRIO
+   ============================================================ */
+
+function getTime() {
+
+    return new Date().toLocaleTimeString(
+        "pt-BR",
+        {
+            hour: "2-digit",
+            minute: "2-digit",
+            second: "2-digit"
+        }
+    );
+
+}
+
+
+
+/* ============================================================
+   MENSAGENS
+   ============================================================ */
+
+function addMessage(sender, text) {
+
+    const message =
+        document.createElement("div");
+
+    const isWattson =
+        sender === "WATTSON";
+
+
+    message.classList.add(
+        "message",
+        isWattson
+            ? "wattson"
+            : "user"
+    );
+
+
+    const avatar =
+        document.createElement("div");
+
+    avatar.classList.add(
+        "message-avatar"
+    );
+
+    avatar.setAttribute(
+        "aria-hidden",
+        "true"
+    );
+
+    avatar.textContent =
+        isWattson
+            ? "🧠"
+            : "👤";
+
+
+    const content =
+        document.createElement("div");
+
+    content.classList.add(
+        "message-content"
+    );
+
+
+    const header =
+        document.createElement("div");
+
+    header.classList.add(
+        "message-header"
+    );
+
+
+    const label =
+        document.createElement("span");
+
+    label.classList.add(
+        "message-label"
+    );
+
+    label.textContent =
+        sender;
+
+
+    const time =
+        document.createElement("span");
+
+    time.classList.add(
+        "message-time"
+    );
+
+    time.textContent =
+        getTime();
+
+
+    const textElement =
+        document.createElement("div");
+
+    textElement.classList.add(
+        "message-text"
+    );
+
+    textElement.textContent =
+        text;
+
+
+    header.appendChild(label);
+
+    header.appendChild(time);
+
+    content.appendChild(header);
+
+    content.appendChild(textElement);
+
+    message.appendChild(avatar);
+
+    message.appendChild(content);
+
+    chat.appendChild(message);
+
+
+    chat.scrollTop =
+        chat.scrollHeight;
+
+}
+
+
+
+/* ============================================================
+   ATIVIDADE
+   ============================================================ */
+
+function addActivity(
+    text,
+    type = "CORE"
+) {
+
+    const item =
+        document.createElement("div");
+
+    item.classList.add(
+        "activity-item"
+    );
+
+
+    const time =
+        document.createElement("span");
+
+    time.classList.add(
+        "activity-time"
+    );
+
+    time.textContent =
+        getTime();
+
+
+    const typeElement =
+        document.createElement("span");
+
+    typeElement.classList.add(
+        "activity-type"
+    );
+
+    typeElement.textContent =
+        type;
+
+
+    const message =
+        document.createElement("span");
+
+    message.classList.add(
+        "activity-message"
+    );
+
+    message.textContent =
+        text;
+
+
+    item.appendChild(time);
+
+    item.appendChild(typeElement);
+
+    item.appendChild(message);
+
+
+    activity.appendChild(item);
+
+
+    activity.scrollTop =
+        activity.scrollHeight;
+
+}
+
+
+
+/* ============================================================
+   ESTADO DO CORE
+   ============================================================ */
+
+function setCoreState(state) {
+
+    systemState.textContent =
+        state;
+
+    corePanelStatus.textContent =
+        state.toUpperCase();
+
+
+    if (state === "Thinking") {
+
+        coreState.textContent =
+            "Processando entrada";
+
+        coreDescription.textContent =
+            "Wattson Core está processando sua mensagem.";
+
+        coreActivityText.textContent =
+            "Processando entrada";
+
+        systemStatus.dataset.status =
+            "thinking";
+
+    }
+
+
+    else if (state === "Ready") {
+
+        coreState.textContent =
+            "Sistema operacional";
+
+        coreDescription.textContent =
+            "Resposta gerada pelo Wattson Core.";
+
+        coreActivityText.textContent =
+            "Resposta pronta";
+
+        systemStatus.dataset.status =
+            "online";
+
+    }
+
+
+    else {
+
+        coreState.textContent =
+            "Sistema operacional";
+
+        coreDescription.textContent =
+            "Wattson Core está aguardando entrada.";
+
+        coreActivityText.textContent =
+            "Aguardando entrada";
+
+        systemStatus.dataset.status =
+            "online";
+
+    }
+
+}
+
+
+
+/* ============================================================
+   ENVIO DE MENSAGEM
+   ============================================================ */
+
+async function sendMessage() {
+
+    const text =
+        input.value.trim();
+
+
+    if (!text) {
+        return;
+    }
+
+
+    addMessage(
+        "VOCÊ",
+        text
+    );
+
+
+    addActivity(
+        "Entrada recebida.",
+        "INPUT"
+    );
+
+
+    input.value = "";
+
+    sendButton.disabled =
+        true;
+
+    sendButtonText.textContent =
+        "Pensando...";
+
+
+    setCoreState(
+        "Thinking"
+    );
+
+
+    addActivity(
+        "Processando entrada...",
+        "CORE"
+    );
+
+
+    try {
+
+        const response =
+            await fetch(
+                API_URL,
                 {
-                    hour: "2-digit",
-                    minute: "2-digit",
-                    second: "2-digit"
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type":
+                            "application/json"
+                    },
+
+                    body:
+                        JSON.stringify({
+                            message: text
+                        })
                 }
             );
 
-        }
+
+        const data =
+            await response.json();
 
 
-        /* ==================== MENSAGENS ==================== */
+        if (!response.ok) {
 
-        function addMessage(sender, text) {
-
-            const message =
-                document.createElement("div");
-
-            const isWattson =
-                sender === "WATTSON";
-
-
-            message.classList.add(
-                "message",
-                isWattson
-                    ? "wattson"
-                    : "user"
+            throw new Error(
+                data.error ||
+                "Erro no servidor."
             );
-
-
-            const avatar =
-                document.createElement("div");
-
-            avatar.classList.add(
-                "message-avatar"
-            );
-
-            avatar.textContent =
-                isWattson
-                    ? "🧠"
-                    : "👤";
-
-
-            const content =
-                document.createElement("div");
-
-            content.classList.add(
-                "message-content"
-            );
-
-
-            const header =
-                document.createElement("div");
-
-            header.classList.add(
-                "message-header"
-            );
-
-
-            const label =
-                document.createElement("span");
-
-            label.classList.add(
-                "message-label"
-            );
-
-            label.textContent =
-                sender;
-
-
-            const time =
-                document.createElement("span");
-
-            time.classList.add(
-                "message-time"
-            );
-
-            time.textContent =
-                getTime();
-
-
-            const textElement =
-                document.createElement("div");
-
-            textElement.classList.add(
-                "message-text"
-            );
-
-            textElement.textContent =
-                text;
-
-
-            header.appendChild(label);
-
-            header.appendChild(time);
-
-            content.appendChild(header);
-
-            content.appendChild(textElement);
-
-            message.appendChild(avatar);
-
-            message.appendChild(content);
-
-            chat.appendChild(message);
-
-
-            chat.scrollTop =
-                chat.scrollHeight;
 
         }
 
 
-        /* ==================== ATIVIDADE ==================== */
-
-        function addActivity(text, type = "CORE") {
-
-            const item =
-                document.createElement("div");
-
-            item.classList.add(
-                "activity-item"
-            );
-
-
-            const time =
-                document.createElement("span");
-
-            time.classList.add(
-                "activity-time"
-            );
-
-            time.textContent =
-                getTime();
-
-
-            const typeElement =
-                document.createElement("span");
-
-            typeElement.classList.add(
-                "activity-type"
-            );
-
-            typeElement.textContent =
-                type;
-
-
-            const message =
-                document.createElement("span");
-
-            message.classList.add(
-                "activity-message"
-            );
-
-            message.textContent =
-                text;
-
-
-            item.appendChild(time);
-
-            item.appendChild(typeElement);
-
-            item.appendChild(message);
-
-
-            activity.appendChild(item);
-
-
-            activity.scrollTop =
-                activity.scrollHeight;
-
-        }
-
-
-        /* ==================== ESTADO ==================== */
-
-        function setCoreState(state) {
-
-            systemState.textContent =
-                state;
-
-            corePanelStatus.textContent =
-                state.toUpperCase();
-
-
-            if (state === "Thinking") {
-
-                coreState.textContent =
-                    "Processando entrada";
-
-                coreDescription.textContent =
-                    "Wattson Core está processando sua mensagem.";
-
-                coreActivityText.textContent =
-                    "Processando entrada";
-
-                systemStatus.dataset.status =
-                    "thinking";
-
-            }
-
-
-            else if (state === "Ready") {
-
-                coreState.textContent =
-                    "Sistema operacional";
-
-                coreDescription.textContent =
-                    "Resposta gerada pelo Wattson Core.";
-
-                coreActivityText.textContent =
-                    "Resposta pronta";
-
-                systemStatus.dataset.status =
-                    "online";
-
-            }
-
-
-            else {
-
-                coreState.textContent =
-                    "Sistema operacional";
-
-                coreDescription.textContent =
-                    "Wattson Core está aguardando entrada.";
-
-                coreActivityText.textContent =
-                    "Aguardando entrada";
-
-                systemStatus.dataset.status =
-                    "online";
-
-            }
-
-        }
-
-
-        /* ==================== ENVIO ==================== */
-
-        async function sendMessage() {
-
-            const text =
-                input.value.trim();
-
-
-            if (!text) {
-                return;
-            }
-
-
-            addMessage(
-                "VOCÊ",
-                text
-            );
-
-
-            addActivity(
-                "Entrada recebida.",
-                "INPUT"
-            );
-
-
-            input.value = "";
-
-            sendButton.disabled =
-                true;
-
-            sendButtonText.textContent =
-                "Pensando...";
-
-
-            setCoreState(
-                "Thinking"
-            );
-
-
-            addActivity(
-                "Processando entrada...",
-                "CORE"
-            );
-
-
-            try {
-
-                const response =
-                    await fetch(
-                        API_URL,
-                        {
-                            method: "POST",
-
-                            headers: {
-                                "Content-Type":
-                                    "application/json"
-                            },
-
-                            body:
-                                JSON.stringify({
-                                    message: text
-                                })
-                        }
-                    );
-
-
-                const data =
-                    await response.json();
-
-
-                if (!response.ok) {
-
-                    throw new Error(
-                        data.error ||
-                        "Erro no servidor."
-                    );
-
-                }
-
-
-                addMessage(
-                    "WATTSON",
-                    data.response
-                );
-
-
-                addActivity(
-                    "Resposta gerada pela inteligência artificial.",
-                    "AI"
-                );
-
-
-                setCoreState(
-                    "Ready"
-                );
-
-            }
-
-
-            catch (error) {
-
-                console.error(
-                    "Erro ao comunicar com o Core:",
-                    error
-                );
-
-
-                addMessage(
-                    "WATTSON",
-                    "Não consegui acessar meu núcleo de IA."
-                );
-
-
-                addActivity(
-                    "Erro: " + error.message,
-                    "ERROR"
-                );
-
-
-                setCoreState(
-                    "Idle"
-                );
-
-            }
-
-
-            finally {
-
-                sendButton.disabled =
-                    false;
-
-                sendButtonText.textContent =
-                    "Enviar";
-
-                input.focus();
-
-            }
-
-        }
-
-
-        /* ==================== FORMULÁRIO ==================== */
-
-        form.addEventListener(
-            "submit",
-            function(event) {
-
-                event.preventDefault();
-
-                sendMessage();
-
-            }
+        addMessage(
+            "WATTSON",
+            data.response
         );
 
 
-        /* ==================== LIMPAR CHAT ==================== */
-
-        clearChatButton.addEventListener(
-            "click",
-            function() {
-
-                chat.innerHTML = "";
-
-
-                addMessage(
-                    "WATTSON",
-                    "Histórico limpo. Estou pronto para uma nova conversa."
-                );
-
-
-                addActivity(
-                    "Histórico da conversa limpo.",
-                    "SYSTEM"
-                );
-
-
-                setCoreState(
-                    "Idle"
-                );
-
-            }
+        addActivity(
+            "Resposta gerada pela inteligência artificial.",
+            "AI"
         );
 
 
-        /* ==================== IDIOMA ==================== */
+        setCoreState(
+            "Ready"
+        );
 
-        const languageButtons =
-            document.querySelectorAll(
-                ".language-button"
-            );
-
-
-        languageButtons.forEach(
-            function(button) {
-
-                button.addEventListener(
-                    "click",
-                    function() {
-
-                        languageButtons.forEach(
-                            function(item) {
-
-                                item.classList.remove(
-                                    "active"
-                                );
-
-                            }
-                        );
+    }
 
 
-                        button.classList.add(
-                            "active"
-                        );
+    catch (error) {
 
-                    }
-                );
-
-            }
+        console.error(
+            "Erro ao comunicar com o Core:",
+            error
         );
 
 
-        /* ==================== TRADUÇÃO ==================== */
-
-        translateButton.addEventListener(
-            "click",
-            function() {
-
-                addActivity(
-                    "Ação de tradução selecionada.",
-                    "ACTION"
-                );
-
-            }
+        addMessage(
+            "WATTSON",
+            "Não consegui acessar meu núcleo de IA."
         );
 
 
-        /* ==================== INICIALIZAÇÃO ==================== */
-
-        document.querySelectorAll(
-            "[data-time]"
-        ).forEach(
-            function(element) {
-
-                element.textContent =
-                    getTime();
-
-            }
+        addActivity(
+            "Erro: " + error.message,
+            "ERROR"
         );
 
 
@@ -1173,10 +1108,163 @@
             "Idle"
         );
 
+    }
+
+
+    finally {
+
+        sendButton.disabled =
+            false;
+
+        sendButtonText.textContent =
+            "Enviar";
 
         input.focus();
 
-    </script>
+    }
+
+}
+
+
+
+/* ============================================================
+   FORMULÁRIO
+   ============================================================ */
+
+form.addEventListener(
+    "submit",
+    function(event) {
+
+        event.preventDefault();
+
+        sendMessage();
+
+    }
+);
+
+
+
+/* ============================================================
+   LIMPAR CHAT
+   ============================================================ */
+
+clearChatButton.addEventListener(
+    "click",
+    function() {
+
+        chat.innerHTML = "";
+
+
+        addMessage(
+            "WATTSON",
+            "Histórico limpo. Estou pronto para uma nova conversa."
+        );
+
+
+        addActivity(
+            "Histórico da conversa limpo.",
+            "SYSTEM"
+        );
+
+
+        setCoreState(
+            "Idle"
+        );
+
+    }
+);
+
+
+
+/* ============================================================
+   IDIOMA
+   ============================================================ */
+
+const languageButtons =
+    document.querySelectorAll(
+        ".language-button"
+    );
+
+
+languageButtons.forEach(
+    function(button) {
+
+        button.addEventListener(
+            "click",
+            function() {
+
+                languageButtons.forEach(
+                    function(item) {
+
+                        item.classList.remove(
+                            "active"
+                        );
+
+                    }
+                );
+
+
+                button.classList.add(
+                    "active"
+                );
+
+
+                addActivity(
+                    "Idioma selecionado: " +
+                    button.dataset.language,
+                    "LANG"
+                );
+
+            }
+        );
+
+    }
+);
+
+
+
+/* ============================================================
+   TRADUÇÃO
+   ============================================================ */
+
+translateButton.addEventListener(
+    "click",
+    function() {
+
+        addActivity(
+            "Ação de tradução selecionada.",
+            "ACTION"
+        );
+
+    }
+);
+
+
+
+/* ============================================================
+   INICIALIZAÇÃO
+   ============================================================ */
+
+document.querySelectorAll(
+    "[data-time]"
+).forEach(
+    function(element) {
+
+        element.textContent =
+            getTime();
+
+    }
+);
+
+
+setCoreState(
+    "Idle"
+);
+
+
+input.focus();
+
+</script>
 
 </body>
 
