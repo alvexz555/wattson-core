@@ -1,6 +1,10 @@
+import pytest
+from urllib.error import URLError
+
 from wattson_core.search.contract import SearchTool
 
 
+@pytest.mark.integration
 def test_search_tool_returns_results():
     tool = SearchTool()
 
@@ -9,6 +13,7 @@ def test_search_tool_returns_results():
     assert results
 
 
+@pytest.mark.integration
 def test_search_tool_returns_list():
     tool = SearchTool()
 
@@ -16,6 +21,9 @@ def test_search_tool_returns_list():
 
     assert isinstance(results, list)
     assert results
+
+
+@pytest.mark.integration
 def test_search_results_have_expected_fields():
     tool = SearchTool()
 
@@ -28,8 +36,6 @@ def test_search_results_have_expected_fields():
         assert "title" in result
         assert "url" in result
         assert "content" in result
-import pytest
-from urllib.error import URLError
 
 
 def test_search_tool_raises_error_when_server_unavailable():
@@ -39,6 +45,8 @@ def test_search_tool_raises_error_when_server_unavailable():
 
     with pytest.raises(URLError):
         tool.search("Linux")
+
+
 def test_search_tool_raises_error_on_timeout():
     tool = SearchTool()
 
